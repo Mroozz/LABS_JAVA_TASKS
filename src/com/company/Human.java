@@ -1,11 +1,14 @@
 package com.company;
+import devices.Car;
+import devices.Phone;
+
 import java.util.Date;
 
 public class Human {
-    String firstName;
-    String lastName;
-    String Sex;
-    Double Age;
+    public String firstName;
+    public String lastName;
+    public String Sex;
+    public Integer   Age;
 
     Phone mobilePhone;
     Animal pet;
@@ -14,8 +17,12 @@ public class Human {
 
     private Double salary;
 
-    public Human (Double salary) {
+    public Human (String firstName, String lastName, String Sex, Integer Age, Double salary) {
         this.salary = salary;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.Sex = Sex;
+        this.Age = Age;
     }
 
     public Double getSalary() {
@@ -49,5 +56,9 @@ public class Human {
         else {
             System.out.println("Sorry but no");
         }
+    }
+
+    public String toString() {
+        return firstName + " " + lastName + " " + Sex + " " + Age + " " + salary;
     }
 }

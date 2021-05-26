@@ -1,24 +1,51 @@
 package com.company;
 
+import devices.Car;
+import devices.Phone;
+
 public class Main {
 
     public static void main(String[] args) {
         Animal dog = new Animal("dog");
         dog.name = "Wolf";
-
-        Phone Samsung = new Phone("Samsung", "S10", "Android12", 6.0);
-        Car Audi = new Car("Volkswagen", "RS6", 60000.0);
-
-        System.out.println("Phone producer = " + Samsung.producer);
         System.out.println("Dog name = " + dog.name);
 
-        Human me = new Human(9636.9);
-        me.mobilePhone = Samsung;
+        dog.feed(); dog.feed(); dog.feed();
+        dog.takeForAWalk();dog.takeForAWalk();
 
-        Double mySalary = me.getSalary();
+        Phone Samsung = new Phone("Samsung", "S10", "Android12", 6.0);
+        Human Man = new Human("John", "Smith", "Male",24,9636.9);
+
+        Car Audi = new Car("Volkswagen", "RS6", 60000.0) {
+            public double hashcode() {
+                return getValue();
+            }
+        };
+        Car Audi2 = new Car("Volkswagen", "RS6", 60000.0) {
+            public double hashcode() {
+                return getValue();
+            }
+        };
+
+
+
+
+        System.out.println("Phone producer = " + Samsung.producer);
+
+
+
+        Man.mobilePhone = Samsung;
+
+        Double mySalary = Man.getSalary();
         Double newSalary = mySalary * 1.2;
-        me.setSalary(newSalary);
+        Man.setSalary(newSalary);
 
-        me.setCar(Audi);
+        Man.setCar(Audi);
+
+        System.out.println(Audi.equals(Audi2));
+        System.out.println(dog);
+        System.out.println(Man);
+        System.out.println(Audi);
+        System.out.println(Samsung);
     }
 }

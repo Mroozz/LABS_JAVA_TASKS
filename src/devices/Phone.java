@@ -1,10 +1,10 @@
-package com.company;
+package devices;
 
 public class Phone {
-    String producer;
-    String model;
-    String operationSystem;
-    Double screenSize;
+    public String producer;
+    public String model;
+    public String operationSystem;
+    public Double screenSize;
 
     public Phone(String producer, String model, String operationSystem, Double screenSize) {
         this.producer = producer;
@@ -12,5 +12,7 @@ public class Phone {
         this.operationSystem = operationSystem;
         this.screenSize = screenSize;
     }
-
+    public String toString() {
+        return producer + " " + model + " " + operationSystem + " " + screenSize;
+    }
 }

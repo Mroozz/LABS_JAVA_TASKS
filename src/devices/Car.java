@@ -1,5 +1,9 @@
 package devices;
 
+import com.company.Human;
+
+import java.util.Random;
+
 public class Car extends Device{
     private Double value;
 
@@ -29,5 +33,24 @@ public class Car extends Device{
 
     public String turnOn(){
         return "Wrrrr, kle kle kle kle ";
+    }
+
+    public String sell(Human seller, Human buyer, Double price) {
+
+        if(seller.getCar() != null && seller.getCar().producer.equals(producer) && buyer.Cash >= price) {
+            System.out.println("Okay I sell" + this.producer + ". But price is " + price);
+            buyer.Cash -= price;
+            seller.Cash += price;
+            buyer.setCar(seller.getCar());
+            System.out.println("Okay it is good deal for both off uss");
+
+        }else if(buyer.Cash < price){
+            System.out.println("Dont waste my time, damn");
+
+        }else {
+            System.out.println("I never see it before lol");
+        }
+
+        return null;
     }
 }

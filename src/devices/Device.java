@@ -1,6 +1,12 @@
 package devices;
 
-public abstract class Device {
+import com.company.Animal;
+import com.company.Human;
+import com.company.Saleable;
+
+import java.util.Objects;
+
+public abstract class Device implements Saleable {
 
     public String producer;
     public String model;
@@ -11,4 +17,6 @@ public abstract class Device {
     }
 
     public abstract String turnOn();
+
+
 }

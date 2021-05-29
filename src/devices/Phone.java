@@ -1,5 +1,9 @@
 package devices;
 
+import com.company.Human;
+
+import javax.swing.*;
+
 public class Phone extends Device{
 
     public String operationSystem;
@@ -18,5 +22,23 @@ public class Phone extends Device{
 
     public String turnOn(){
         return "Phone starts wait ...";
+    }
+    public String sell(Human seller, Human buyer, Double price) {
+
+        if(seller.getMobilePhone() != null && seller.mobilePhone.producer.equals(producer) && buyer.Cash >= price) {
+            System.out.println("Okay I sell" + this.producer + ". But price is " + price);
+            buyer.Cash -= price;
+            seller.Cash += price;
+            buyer.setMobilePhone(seller.getMobilePhone());
+            System.out.println("Okay it is good deal for both off uss");
+
+        }else if(buyer.Cash < price){
+            System.out.println("Dont waste my time, damn");
+
+        }else {
+            System.out.println("I never see it before lol");
+        }
+
+        return null;
     }
 }

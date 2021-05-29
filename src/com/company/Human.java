@@ -1,6 +1,7 @@
 package com.company;
 import devices.Car;
 import devices.Phone;
+import java.util.*;
 
 import java.util.Date;
 
@@ -9,20 +10,19 @@ public class Human {
     public String lastName;
     public String Sex;
     public Integer   Age;
-
-    Phone mobilePhone;
-    Animal pet;
-
-    private Car Audi;
-
+    public Double Cash;
+    public Phone mobilePhone;
+    public Animal pet;
+    private Car car;
     private Double salary;
 
-    public Human (String firstName, String lastName, String Sex, Integer Age, Double salary) {
+    public Human (String firstName, String lastName, String Sex, Integer Age, Double salary, Double Cash) {
         this.salary = salary;
         this.firstName = firstName;
         this.lastName = lastName;
         this.Sex = Sex;
         this.Age = Age;
+        this.Cash = Cash;
     }
 
     public Double getSalary() {
@@ -43,22 +43,20 @@ public class Human {
         }
     }
 
-    public Car getAudi() { return Audi; }
 
-    public void setCar(Car Audi) {
-        if(this.salary > Audi.getValue()) {
-            System.out.println("For cash");
-            this.Audi = Audi;
-        }
-        else if(this.salary > Audi.getValue() / 12.0) {
-                System.out.println("On credit");
-            }
-        else {
-            System.out.println("Sorry but no");
-        }
-    }
+
+    public Car getCar() { return car; }
+    public Animal getPet() { return pet; }
+    public Phone getMobilePhone() {return mobilePhone; }
+
+    public void setMobilePhone(Phone phone) { this.mobilePhone = phone; }
+    public void setPet(Animal pet) { this.pet = pet; }
+    public void setCar(Car car) { this.car = car; }
 
     public String toString() {
         return firstName + " " + lastName + " " + Sex + " " + Age + " " + salary;
     }
+
+
+
 }

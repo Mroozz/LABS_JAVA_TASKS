@@ -1,13 +1,17 @@
-package com.company;
+package creatures;
 
-public class Animal implements Saleable {
-    String species;
-    String name;
+import com.company.Human;
+import com.company.Saleable;
+
+public abstract class Animal implements Feedable, Saleable {
+    public String species;
+    public String name;
     private Double weight;
 
     static public final Double DEFAULT_ANIMAL_WEIGHT=1.0;
 
-    Animal(String species) {
+    public Animal(String species) {
+
         this.species = species;
         switch(this.species) {
             case "dog":
@@ -21,7 +25,7 @@ public class Animal implements Saleable {
         }
     }
 
-    void feed() {
+    public void feed() {
         if (this.weight > 0) {
             this.weight += 1;
             System.out.println("thx for food");
@@ -29,7 +33,7 @@ public class Animal implements Saleable {
             System.out.println("Nooo!? Wrrrr!");
         }
     }
-    void takeForAWalk() {
+    public void takeForAWalk() {
             if(weight > 0){
                 this.weight -= 1;
                 System.out.println("thx for walk, my weight now it " + this.weight);

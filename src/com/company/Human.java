@@ -1,7 +1,7 @@
 package com.company;
+import creatures.Animal;
 import devices.Car;
 import devices.Phone;
-import java.util.*;
 
 import java.util.Date;
 

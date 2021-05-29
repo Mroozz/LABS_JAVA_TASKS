@@ -1,18 +1,17 @@
 package com.company;
+import creatures.Animal;
+import creatures.Pet;
 import devices.Car;
-import devices.Device;
 import devices.Phone;
-
-import java.util.HashMap;
 
 public class Main {
 
     public static void main(String[] args) {
-        Animal dog = new Animal("dog");
+        Pet dog = new Pet("dog");
         dog.name = "Wolf";
         System.out.println("Dog name = " + dog.name);
 
-        Animal cat = new Animal("cat");
+        Pet cat = new Pet("cat");
         cat.name = "Suzie";
 
         dog.feed(); dog.feed(); dog.feed();
@@ -67,7 +66,6 @@ public class Main {
         System.out.println(Man.Cash);
         System.out.println(Man.pet);
         System.out.println(Women.Cash);
-        System.out.println(Women.pet);
         Audi2.sell(Man,Women,30000.0);
         Audi.sell(Man,Women,60000.0);
     }

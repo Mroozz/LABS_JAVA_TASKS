@@ -1,14 +1,13 @@
 package devices;
 
-public class Car {
-    public String producer;
-    public String model;
+public class Car extends Device{
     private Double value;
 
-    public Car(String producer, String model, Double value) {
+    public Car(String producer, String model, Double value, Integer yearOfProduction) {
         this.producer = producer;
         this.model = model;
         this.value = value;
+        this.yearOfProduction = yearOfProduction;
     }
 
     public Double getValue() {
@@ -25,6 +24,10 @@ public class Car {
     }
 
     public String toString() {
-        return producer + " " + model + " " + value;
+        return producer + " " + model + " " + value + " " + yearOfProduction;
+    }
+
+    public String turnOn(){
+        return "Wrrrr, kle kle kle kle ";
     }
 }

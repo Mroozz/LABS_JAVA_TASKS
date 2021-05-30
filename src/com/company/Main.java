@@ -1,12 +1,13 @@
 package com.company;
 import creatures.Animal;
+import creatures.FarmAnimal;
 import creatures.Pet;
-import devices.Car;
-import devices.Phone;
+import devices.*;
+import static devices.Phone.defaultAppURL;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Pet dog = new Pet("dog");
         dog.name = "Wolf";
         System.out.println("Dog name = " + dog.name);
@@ -21,12 +22,12 @@ public class Main {
         Human Man = new Human("John", "Smith", "Male",24,9636.9,66666.0);
         Human Women = new Human("Angie","Jolie", "female",23,9969.9, 66666.0);
 
-        Car Audi = new Car("Volkswagen", "RS6", 60000.0, 2011) {
+        Car Audi = new Diesel("Volkswagen", "RS6", 60000.0, 2011) {
             public double hashcode() {
                 return getValue();
             }
         };
-        Car Audi2 = new Car("Volkswagen", "RS6", 60000.0, 2011) {
+        Car Audi2 = new Diesel("Volkswagen", "RS6", 60000.0, 2011) {
             public double hashcode() {
                 return getValue();
             }
@@ -68,5 +69,28 @@ public class Main {
         System.out.println(Women.Cash);
         Audi2.sell(Man,Women,30000.0);
         Audi.sell(Man,Women,60000.0);
+
+        Animal bear = new FarmAnimal("bear");
+        bear.name = "Lotek";
+        bear.feed();
+        bear.feed(200);
+
+        bear.beEaten();
+
+        Samsung.installAnnApp("Youtube");
+        Samsung.installAnnApp1("Youtube", 2.0);
+        Samsung.installAnnApp2("Youtube",1.0, defaultAppURL);
+
+        Car Panda = new LPG("Fiat","Panda",15000.0,2015);
+        System.out.println(Panda);
+        System.out.println(bear);
+
+        Car Tesla = new Electric("Tesla","S",200000.0,2019);
+        System.out.println(Tesla);
+
+        Samsung.installAnnApp2("Gmail",2.5, defaultAppURL);
+        Panda.refuel();
+
+        }
     }
-}
+

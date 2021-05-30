@@ -1,10 +1,7 @@
 package devices;
-
 import com.company.Human;
 
-import java.util.Random;
-
-public class Car extends Device{
+public abstract class Car extends Device{
     private Double value;
 
     public Car(String producer, String model, Double value, Integer yearOfProduction) {
@@ -13,6 +10,8 @@ public class Car extends Device{
         this.value = value;
         this.yearOfProduction = yearOfProduction;
     }
+
+    public abstract void refuel();
 
     public Double getValue() {
         return value;

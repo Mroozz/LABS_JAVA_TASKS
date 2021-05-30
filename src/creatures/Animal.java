@@ -18,7 +18,7 @@ public abstract class Animal implements Feedable, Saleable {
                 this.weight = 25.0; break;
             case "cat":
                 this.weight = 5.0; break;
-            case "Bear":
+            case "bear":
                 this.weight = 500.0; break;
             default:
                 this.weight = DEFAULT_ANIMAL_WEIGHT; break;
@@ -29,10 +29,24 @@ public abstract class Animal implements Feedable, Saleable {
         if (this.weight > 0) {
             this.weight += 1;
             System.out.println("thx for food");
-        } else {
+        }
+        else {
             System.out.println("Nooo!? Wrrrr!");
         }
     }
+
+    public void feed(double weight){
+        if (this.weight > 0) {
+            this.weight += weight;
+            System.out.println("thx for food");
+        }
+        else {
+            System.out.println("Nooo!? Wrrrr!");
+        }
+    }
+
+
+
     public void takeForAWalk() {
             if(weight > 0){
                 this.weight -= 1;
@@ -65,5 +79,9 @@ public abstract class Animal implements Feedable, Saleable {
         }
 
         return null;
+    }
+
+    public void beEaten(){
+        System.out.println("Oh noooooo! Why You eat me :<");
     }
 }

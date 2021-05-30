@@ -15,4 +15,5 @@ public abstract class Device implements Saleable {
     public abstract String turnOn();
 
 
+
 }

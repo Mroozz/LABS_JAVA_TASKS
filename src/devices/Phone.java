@@ -15,6 +15,7 @@ public class Phone  extends Device implements Serializable{
     public static final  String defaultProtocol = "https";
     public static final String defaultNameVersion = "GoogleStore";
     public static final java.net.URL defaultAppURL = makeUrl("https://play.google.com/store/apps?hl=pl&gl=US");
+
     public static java.net.URL makeUrl(String urlString) {
         try {
             return new java.net.URL(urlString);

@@ -7,6 +7,7 @@ public abstract class Device implements Saleable {
     public String producer;
     public String model;
     public Integer yearOfProduction;
+    public Double value;
 
     public String toString(){
         return producer + " " + model + " " + yearOfProduction;

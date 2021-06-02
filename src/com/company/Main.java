@@ -22,7 +22,7 @@ public class Main {
         dog.feed(); dog.feed(); dog.feed();
         dog.takeForAWalk();dog.takeForAWalk();
 
-        Phone Samsung = new Phone("Samsung", "S10", "Android12", 6.0, 2020);
+        Phone Samsung = new Phone("Samsung", "S10", "Android12", 6.0, 2020, 20);
 
         Human Man = new Human("John", "Smith", "Male",24,9636.9,66666.0, 2);
         Human Women = new Human("Angie","Jolie", "female",23,9969.9, 66666.0, 2);
@@ -92,6 +92,14 @@ public class Main {
         System.out.println("Yes, I sell You my car. " + Audi.youBuyIt(Audi.ownerList,Man));
 
         System.out.println("You'll first owner in country ;) But on the world, you  " + Audi.howManyOwners(Audi.ownerList));
+
+        Application Gmail = new Application("Gmail",2.0,0.0);
+        Application Rich = new Application("IAmRich",1.0,1000.0);
+
+
+        Samsung.appCollection.add(0,Rich);
+        Samsung.ifInstall(Rich, Samsung.appCollection);
+
         }
     }
 

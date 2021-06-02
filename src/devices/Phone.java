@@ -1,7 +1,12 @@
 package devices;
 import com.company.Human;
 import  java.io.Serializable;
+import java.io.StringReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.stream.Stream;
 import javax.swing.*;
 
 
@@ -10,7 +15,9 @@ public class Phone  extends Device implements Serializable{
 
     public String operationSystem;
     public Double screenSize;
+    public ArrayList<Application> appCollection;
     public String[] data = {"Google Store", "Google Chrome", "Gmail", "'Spotify", "Youtube"};
+
 
     public static final  String defaultProtocol = "https";
     public static final String defaultNameVersion = "GoogleStore";
@@ -25,12 +32,13 @@ public class Phone  extends Device implements Serializable{
     }
 
 
-    public Phone(String producer, String model, String operationSystem, Double screenSize, Integer yearOfProduction) {
+    public Phone(String producer, String model, String operationSystem, Double screenSize, Integer yearOfProduction, Integer size) {
         this.producer = producer;
         this.model = model;
         this.operationSystem = operationSystem;
         this.screenSize = screenSize;
         this.yearOfProduction = yearOfProduction;
+        this.appCollection = new ArrayList<>(size);
     }
     public String toString() {
         return producer + " " + model + " " + operationSystem + " " + screenSize + " " + yearOfProduction;
@@ -69,6 +77,56 @@ public class Phone  extends Device implements Serializable{
         System.out.println("The " + appName + " version: " + appVersion + " now installing" + " From:" + defaultAppURL);
     };
 
+    public void reallyInstallApp(Human human, Application app, ArrayList<Application> list){
+        if(human.Cash >= app.appValue){
+            human.Cash -= app.appValue;
+            list.add(list.lastIndexOf(app), app);
+        }else {
+            System.out.println("Go work and then try buy something :)");
+        }
+    }
+
+    public void ifInstall(Application app, ArrayList<Application> list) {
+        if (list.contains(app)){
+                    System.out.println("You have this application in Phone");
+                } else {
+                    System.out.println("Okay install");
+        }
+    }
+
+    public void ifInstall2(Application app) {
+        if (app.getAppName() == app.appName) {
+            System.out.println("You have this application in Phone");
+        } else {
+            System.out.println("Okay install");
+        }
+    }
 
 
+    public void thisFree(Application app, ArrayList<Application> list){
+        for(int i = 0; i < list.size(); i++ ){
+        if(app.appValue == 0.0){
+            appCollection.add(0,app);
+        }
+            System.out.println(appCollection);
+    }
 }
+
+    public Double getAppValue(Application app, ArrayList<Application> list){
+    double sum = 0.0;
+    for(int i = 0; i < list.size(); i++){
+        sum += app.appValue;
+    } return sum;
+}
+
+    public void getAppSortedAlphabet(ArrayList<Application> app) {
+        app.sort(Comparator.comparing(Application::getAppName));
+        System.out.println(app);
+    }
+
+    public void getAppSortedValue(ArrayList<Application> app) {
+        app.sort(Comparator.comparing(Application::getAppValue));
+        System.out.println(app);
+    }
+}
+

@@ -69,7 +69,8 @@ public class Human {
     public Double addValueOfCars(ArrayList<Car> cars) {
         double sum = 0.0;
         for (int i = 0; i < cars.toArray().length; i++) {
-            System.out.println("Select all your cars from list, in sequence, remember 0 is first")
+            System.out.println("Select all your cars from list, in sequence, remember 0 is first");
+
             sum += getCar(cars).value;
         }
         System.out.println("All Your cars cost: " + sum);

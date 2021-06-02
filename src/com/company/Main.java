@@ -3,6 +3,9 @@ import creatures.Animal;
 import creatures.FarmAnimal;
 import creatures.Pet;
 import devices.*;
+
+import java.util.List;
+
 import static devices.Phone.defaultAppURL;
 
 public class Main {
@@ -32,10 +35,12 @@ public class Main {
         Man.mobilePhone = Samsung;
         Man.pet = dog;
         Man.setCar(Man.garage, Audi);
+        Audi.ownerList.add(Man);
 
         Women.mobilePhone = Samsung;
         Women.pet = cat;
         Women.setCar(Women.garage, Audi2);
+        Audi2.ownerList.add(Women);
 
         Double mySalary = Man.getSalary();
         Double newSalary = mySalary * 1.2;
@@ -74,9 +79,19 @@ public class Main {
         Man.getSorted(Man.garage);
         Women.getSorted(Women.garage);
 
+        System.out.println(Audi.ownerList);
+
         Audi.sell(Man,Women,1.0);
         Women.getSorted(Women.garage);
         Women.addValueOfCars(Women.garage);
+
+        System.out.println("Audi owners: " + Audi.ownerList);
+
+        System.out.println("You be the first Tesla owner! " + Tesla.firstOwner());
+
+        System.out.println("Yes, I sell You my car. " + Audi.youBuyIt(Audi.ownerList,Man));
+
+        System.out.println("You'll first owner in country ;) But on the world, you  " + Audi.howManyOwners(Audi.ownerList));
         }
     }
 
